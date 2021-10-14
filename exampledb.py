@@ -9,6 +9,11 @@ class TableData:
         self.conn = sqlite3.connect(self.database_name)
         self.cur = self.conn.cursor()
 
+    def __iter__(self):
+        yield from self.cur.execute(
+            f"SELECT * FROM {self.table_name}"
+        )
+
     def __len__(self):
         self.cur.execute(
             f"SELECT COUNT(*) FROM {self.table_name}"
@@ -52,6 +57,7 @@ class TableData:
             f"{core12},"
             f"{ram_info})"
         )
+        self.conn.commit()
 
     def get_info(self):
         with self.conn:

@@ -24,8 +24,8 @@ def main(N_seconds: int):
     while True:
         core_data = get_core_usage()
         ram_data = get_ram_usage()
-        show_image(core_data, ram_data)
         db_object.insert(core_data, ram_data)
+        show_image(core_data, ram_data)
         sleep(N_seconds)
         send_message()
 
@@ -62,4 +62,4 @@ def show_image(core_data: List[float], ram: float):
 
 
 if __name__ == "__main__":
-    main(5)
+    main(1)
