@@ -18,7 +18,7 @@ class TableData:
         self.cur.execute(
             f"SELECT COUNT(*) FROM {self.table_name}"
         )
-        return self.cur.fetchone()[0]  # !!! why return fetchone[0]
+        return self.cur.fetchone()[0]
 
     def create_table(self):
         self.cur.execute(
