@@ -58,7 +58,7 @@ def show_image(core_data: List[float], ram: float):
     plt.bar(x, cores)
     plt.xlabel("cores")
     plt.ylabel("percentage %")
-    plt.savefig("mygraph_task1.png")
+    plt.savefig("diagram_task1.png")
 
 
 if __name__ == "__main__":
