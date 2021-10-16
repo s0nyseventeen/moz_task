@@ -1,5 +1,6 @@
 # own
 *.pyc
+.idea
 
 # Mac
 .DS_Store
