@@ -2,14 +2,17 @@ from rest_framework import serializers
 from .models import Task
 
 
-#class TaskSerializer(serializers.Serializer):
-#    task_id = serializers.IntegerField()
-#    task_url = serializers.CharField(max_length=255)
-
-
 class TaskSerializer(serializers.ModelSerializer):
     class Meta:
         model = Task
-        fields = [
-            "task_id"
-        ]
+        fields = 'id', 'task_url'
+    
+    def create(self, validated_data):
+        """Create and return a new Task
+        """
+        newtask = Task(
+            #task_id=validate_data['task_id'],
+            task_url=validated_data['task_url']
+        )
+        newtask.save()
+        return newtask
